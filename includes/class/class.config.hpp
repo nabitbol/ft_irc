@@ -8,6 +8,7 @@ class Config {
 /* ---------------------------------- data ---------------------------------- */
 
 	int						sock;
+	int						port;
 	struct sockaddr_in 		addr;
 
 /* ------------------------ constructors/destructors ------------------------ */

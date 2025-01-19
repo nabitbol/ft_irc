@@ -2,12 +2,12 @@
 
 /* ------------------------ constructors/destructors ------------------------ */
 
-Server::Server(int port): _config(port), _error(), _loop(true) {
+Server::Server(): _config(), _error(), _loop(true) {
 	addSockToPfds(_config.sock);
 	initCommands();
 };
 
-Server::Server(int port, Error error, std::string pass): _config(port), _error(error), _pass(pass), _loop(true) {
+Server::Server(int port, Error error, std::string pass): _config(port, error), _error(error), _pass(pass), _loop(true) {
 	addSockToPfds(_config.sock);
 	initCommands();
 };

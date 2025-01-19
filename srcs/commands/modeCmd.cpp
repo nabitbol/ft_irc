@@ -74,6 +74,7 @@ void			addKeywordToResponse(std::string &response, std::string keyword) {
 bool			parseChannelKeyword(Server &server, std::string &channelName, std::string command, std::string &keyword, char prefix) {
 	std::vector<Channel *>::iterator	it = server.findChannel(channelName);
 	std::string delimiter = " ";
+	std::stringstream    itoa;
 	size_t		pos = 0;
 	size_t		wordCount = 0;
 
@@ -85,7 +86,8 @@ bool			parseChannelKeyword(Server &server, std::string &channelName, std::string
 	command = eraseLineBreak(command);
 	if (prefix == '+') {
 		if (command.size() == 0 || wordCount != 3) {
-			keyword = std::to_string(rand() % 1000);
+			itoa << (rand() % 1000);
+			keyword = itoa.str();
 			(*it)->setKeyword(keyword);
 		}
 		else {

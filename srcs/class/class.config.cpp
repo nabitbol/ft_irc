@@ -2,7 +2,7 @@
 
 /* ------------------------ constructors/destructors ------------------------ */
 
-Config::Config(int port) {
+Config::Config(int port): port(port){
 	sock = socket(IP_TYPE, SOCKET_TYPE, 0);
 	int opt = 1;
 	setsockopt(sock, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt));

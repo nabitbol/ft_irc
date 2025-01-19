@@ -43,43 +43,43 @@ TFLAGS		=	$(foreach dir, $(TEM_DIR), -I $(dir))
 
 # Build target
 $(NAME): $(OBJ)
-	@echo "-----\nCreating Binary File $(_YELLOW)$@$(_WHITE) ... \c"
+	@echo -e "-----\nCreating Binary File $(_YELLOW)$@$(_WHITE) ... \c"
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@mv ircserv bin
-	@echo "$(_GREEN)DONE$(_WHITE)\n-----"
+	@echo -e "$(_GREEN)DONE$(_NC)\n-----"
 
 # Build obj binaries
 $(OBJ_DIR)/%.opp: %.cpp
-	@echo "Compiling $(_YELLOW)$@$(_WHITE) ... \c"
+	@echo -e "Compiling $(_YELLOW)$@$(_WHITE) ... \c"
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(IFLAGS) -o $@ -c $<
-	@echo "$(_GREEN)DONE$(_WHITE)"
+	@echo -e "$(_GREEN)DONE$(_WHITE)"
 
 # Build all targets
 all: $(NAME)
 
 # Show macro details
 show:
-	@echo "$(_BLUE)SRC :\n$(_YELLOW)$(SRC)$(_WHITE)"
-	@echo "$(_BLUE)OBJ :\n$(_YELLOW)$(OBJ)$(_WHITE)"
-	@echo "$(_BLUE)CFLAGS :\n$(_YELLOW)$(CFLAGS)$(_WHITE)"
-	@echo "$(_BLUE)IFLAGS :\n$(_YELLOW)$(IFLAGS)$(_WHITE)"
-	@echo "$(_BLUE)TFLAGS :\n$(_YELLOW)  $(TFLAGS)$(NC)\n"
-	@echo "\n-----\n"
-	@echo "$(_BLUE)Compiling : \n$(_YELLOW)$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(_WHITE)"
+	@echo -e "$(_BLUE)SRC :\n$(_YELLOW)$(SRC)$(_WHITE)"
+	@echo -e "$(_BLUE)OBJ :\n$(_YELLOW)$(OBJ)$(_WHITE)"
+	@echo -e "$(_BLUE)CFLAGS :\n$(_YELLOW)$(CFLAGS)$(_WHITE)"
+	@echo -e "$(_BLUE)IFLAGS :\n$(_YELLOW)$(IFLAGS)$(_WHITE)"
+	@echo -e "$(_BLUE)TFLAGS :\n$(_YELLOW)  $(TFLAGS)$(NC)\n"
+	@echo -e "\n-----\n"
+	@echo -e "$(_BLUE)Compiling : \n$(_YELLOW)$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(_WHITE)"
 
 
 # Remove objects
 clean:
-	@echo "$(_WHITE)Deleting Objects Directory $(_YELLOW)$(OBJ_DIR)$(_WHITE) ... \c"
+	@echo -e "$(_WHITE)Deleting Objects Directory $(_YELLOW)$(OBJ_DIR)$(_WHITE) ... \c"
 	@$(foreach file, $(OBJ), rm -rf $(file))
-	@echo "$(_GREEN)DONE$(_WHITE)\n-----"
+	@echo -e "$(_GREEN)DONE$(_WHITE)\n-----"
 
 # Remove every built binary
 fclean: clean
-	@echo "Deleting Binary File $(_YELLOW)$(NAME)$(_WHITE) ... \c"
+	@echo -e "Deleting Binary File $(_YELLOW)$(NAME)$(_WHITE) ... \c"
 	@rm -rf bin/
-	@echo "$(_GREEN)DONE$(_WHITE)\n-----"
+	@echo -e "$(_GREEN)DONE$(_WHITE)\n-----"
 
 # Remove and rebuild everything
 re: fclean all
@@ -95,15 +95,15 @@ re: fclean all
 # #############################################################################
 
 # Colors
-_GREY=	\033[1;30m
-_RED=	\033[1;31m
-_GREEN=	\033[1;32m
-_YELLOW=\033[1;33m
-_BLUE=	\033[1;34m
-_PURPLE=\033[1;35m
-_CYAN=	\033[1;36m
-_WHITE=	\033[1;37m
-_NC=	\033[0m
+_GREY=   $(shell tput setaf 0)
+_RED=    $(shell tput setaf 1)
+_GREEN=  $(shell tput setaf 2)
+_YELLOW= $(shell tput setaf 3)
+_BLUE=   $(shell tput setaf 4)
+_PURPLE= $(shell tput setaf 5)
+_CYAN=   $(shell tput setaf 6)
+_WHITE=  $(shell tput setaf 7)
+_NC=     $(shell tput sgr0) 
 
 # Colored messages
 SUCCESS=$(GREEN)SUCCESS$(NC)

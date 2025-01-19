@@ -182,7 +182,7 @@ bool		Server::spolloutCondition(int &index) {
 
 void		Server::sbind()  {
 	bind(_config.sock, (const struct sockaddr *)&(_config.addr), sizeof(_config.addr));
-	std::cout << std::endl << "Server: The server socket (socket #" << _config.sock << ") has bound to port #6667." << std::endl;
+	std::cout << std::endl << "Server: The server socket (socket #" << _config.sock << ") has bound to port "<< _config.port<< "." << std::endl;
 };
 
 void		Server::slisten(int num) {

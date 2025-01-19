@@ -4,6 +4,7 @@
 /* -------------------------------- commands -------------------------------- */
 
 void	                passCmd(Server &, int, parsed *);
+void	                capCmd(Server &, int, parsed *);
 void	                partCmd(Server &, int, parsed *);
 void	                listCmd(Server &, int , parsed *);
 void	                quitCmd(Server &, int, parsed *);

@@ -340,6 +340,7 @@ void			Server::sendToMyselfInChannel(std::string &channelName, std::string &resp
 /* -------------------------------- commands -------------------------------- */
 
 void		Server::initCommands() {
+	_commands["CAP"] = &capCmd;
 	_commands["PASS"] = &passCmd;
 	_commands["JOIN"] = &joinCmd;
 	_commands["PART"] = &partCmd;
@@ -358,15 +359,16 @@ void		Server::initCommands() {
 
 void		Server::callCommand(Server &server, int &index, parsed *parsedCommand) {
 	std::string notRegistered = "Your are not registered to our server please try to connect with the right password\n";
-	if (!server.isRegistered(index) && parsedCommand->command.compare("PASS") != 0) {
+	if (!server.isRegistered(index) && parsedCommand->command.compare("PASS") != 0 && parsedCommand->command.compare("CAP") != 0) {
 		server.ssend(notRegistered, index);
 		server.closeUser(index);
 		server.setLoop(false);
 		return ;
 	}
 	if ((server.isRegistered(index) && _commands.find(parsedCommand->command) != _commands.end()) ||
-		parsedCommand->command.compare("PASS") == 0)
+		parsedCommand->command.compare("PASS") == 0 || parsedCommand->command.compare("CAP") == 0 ) {
 			_commands.find(parsedCommand->command)->second(server, index, parsedCommand);
+		}
 };
 
 /* ----------------------------- close functions ---------------------------- */

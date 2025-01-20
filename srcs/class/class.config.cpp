@@ -30,11 +30,9 @@ Config::~Config() {};
 
 /* ------------------------------ config check ------------------------------ */
 
-/*
-** The value space of unsigned short is between 0 and 65535 which is the same as
-** the number of port available in common devices. Here we check if the we
-** can cast the port in an unsigned short, this way we can define if the port is valid or not.
-*/
-bool Config::isValidPort(int port) {
-  return static_cast<unsigned short>(port) == port && port >= 0;
+bool Config::isValidPort(int port) {	
+	int minPortValue = 0;
+	int maxPortValue = 65535;
+
+	return port >= minPortValue && port <= maxPortValue;
 }

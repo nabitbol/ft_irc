@@ -8,9 +8,12 @@ WORKDIR /usr/irc
 
 COPY / /usr/irc
 
-RUN make
+RUN make re
 
-EXPOSE 6667/tcp
+# If you need to handle SIGTERM in the container
+# you should use tini, running as PID 1 it handle
+# SIGTERM signal and potential zombie processes
+# Check https://github.com/krallin/tini
 
 ENTRYPOINT ["./bin/ircserv"]
 CMD ["6667", "password"]

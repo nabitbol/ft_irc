@@ -1,6 +1,7 @@
 #ifndef CLASS_CONFIG_HPP
 # define CLASS_CONFIG_HPP
 
+class Error;
 class Config {
 
     public:
@@ -13,8 +14,13 @@ class Config {
 
 /* ------------------------ constructors/destructors ------------------------ */
 
-	Config(int);
+	Config();
+	Config(int, Error &);
 	~Config();
+
+/* ------------------------------ config check ------------------------------ */
+
+	bool isValidPort(int);
 
 };
 

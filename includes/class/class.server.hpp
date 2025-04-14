@@ -26,7 +26,7 @@ class Server {
 
 /* ------------------------ constructors/destructors ------------------------ */
 
-	Server(int);
+	Server();
 	Server(int, Error, std::string);
 	~Server();
 

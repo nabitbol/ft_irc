@@ -7,7 +7,8 @@
 #define PERR(x) std::cerr << x << std::endl;
 #define IP_TYPE AF_INET
 #define SOCKET_TYPE SOCK_STREAM
-#define HOST "127.0.0.1"
+#define HOST "0.0.0.0"
+#define DEFAULT_PORT 6667
 
 /* ----------------------------- Common headers ----------------------------- */
 

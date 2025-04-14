@@ -5,6 +5,7 @@
 Error::Error(): type(NO_ERROR) {
 	errorMessages[ARGUMENT] 				=	"Error: invalid number of arguments.\n";
 	errorMessages[UNAVAILABLE_PORT] 		= 	"Error: port is already assigned.\n";
+	errorMessages[INVALID_PORT] 			= 	"Error: wrong port number. it need to be between 0 and 65535.\n";
 	errorMessages[ERR_NOSUCHNICK] 			= 	"place1 :No such nick/channel.\n";
 	errorMessages[ERR_NOSUCHSERVER] 		= 	"place1 :No such server.\n";
 	errorMessages[ERR_NOSUCHCHANNEL] 		= 	"place1 :No such channel.\n";

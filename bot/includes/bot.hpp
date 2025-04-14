@@ -3,6 +3,7 @@
 
 #define IP_TYPE AF_INET
 #define PROTOCOLE SOCK_STREAM
+#define HOST "127.0.0.1"
 #define PORT 6667
 
 /* ----------------------------- Common headers ----------------------------- */

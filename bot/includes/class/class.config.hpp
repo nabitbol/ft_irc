@@ -14,7 +14,7 @@ class Config {
 
 	Config() {
 		socketClient = socket(IP_TYPE, PROTOCOLE, 0);
-		addrClient.sin_addr.s_addr = inet_addr("127.0.0.1");
+		addrClient.sin_addr.s_addr = inet_addr(HOST);
 		addrClient.sin_family = IP_TYPE;
 		addrClient.sin_port = htons(PORT);
 	};

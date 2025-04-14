@@ -17,7 +17,7 @@
 
 Simple implementation of a IRC server in C++98. Following the [RFC 1459](https://datatracker.ietf.org/doc/html/rfc1459) and [RFC 2813](https://datatracker.ietf.org/doc/html/rfc2813) guidelines.
 
-We used Hexchat as a IRC client reference, to be sur all the funclionailty enumerated here works 
+We used HexChat as an IRC client reference to be sure all the functionality enumerated here works.
 
 ## Quick start
 
